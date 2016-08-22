@@ -1,0 +1,107 @@
+
+<div class="container elegant">
+    <div class="row-fluid signup">
+        <div class="span4 offset4">
+            <div class="card">
+                <div class="text-center">
+                    <h2 class="diet"><?php echo lang('welcome') ?></h2>
+                    <h3>
+                        <small><?php echo lang('lets_start') ?></small>
+                    </h3>
+                </div>
+
+                <?php echo form_open('') ?>
+
+                <div class="signup-buttons">
+                    <div class="form-group">
+                        <div class="row-fluid">
+                            <div class="span12">                                    
+                                <a href="<?php
+                                echo site_url('facebook');
+                                echo (isset($_GET['redirect'])) ? "?redirect=" . urlencode(urldecode($_GET['redirect'])) : "";
+                                ?>">
+                                    <div style="background-color:#3B5998" class="btn btn-primary btn-lg btn-block" id="loginbutton">
+                                        <i class="fa fa-facebook fa-fw fa-lg"></i><?php echo lang('signup_facebook') ?>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fancy">
+                    <span class="strUpper"><?php echo lang('or') ?></span>
+                </div>
+
+                <div class="span12">
+                    <?php
+                        if(isset($captcha_err) && strlen($captcha_err) > 0){
+                            echo "<div class='alert alert-danger'>{$captcha_err}</div>";
+                        }
+                        echo validation_errors();
+                    ?>                    
+                </div>
+
+                <div class="form-group">
+                    <label for="first_name"><?php echo lang('name') ?></label>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <input type="text" placeholder="<?php echo lang('first') ?>" class="form-control required" name="firstname" required="" id="FBfirst_name" autocomplete="off">
+                        </div>
+
+                        <div class="span5 offset1">
+                            <input type="text" placeholder="<?php echo lang('last') ?>" class="form-control required" name="lastname" required="" id="FBlast_name" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><?php echo lang('email') ?></label>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <input type="text" placeholder="<?php echo lang('email_placeholder') ?>" class="form-control required" name="email" required="" id="FBemail" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password"><?php echo lang('password') ?></label>
+                    <input type="password" title="<?php echo lang('password_title') ?>" pattern=".{8,}" placeholder="<?php echo lang('password_placeholder') ?>" name="password" id="password" class="form-control required" required="" autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <?php echo $recaptcha; ?>
+                </div>
+
+                <div class="signup-buttons">
+                    <div class="form-group">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <button class="btn btn-success btn-lg btn-block" type="submit">
+                                    <i class="icon fa fa-star"></i> <?php echo lang('signup') ?>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                </form>
+
+                <div class="company-signup">
+                    <small>
+                        <a href="<?php echo site_url('user/signup/company') ?>"><?php echo lang('need_company_account') ?></a>
+                    </small>
+                </div>
+            </div>
+
+            <div class="tos text-center">
+                <small>
+                    <?php echo lang('terms_agree') ?>
+                    <a href="<?php echo site_url('pages/terms'); ?>"><?php echo lang('terms') ?></a><br>
+                    <?php echo lang('and') ?> <a href="<?php echo site_url('pages/privacy'); ?>"><?php echo lang('privacy') ?></a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>

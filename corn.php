@@ -1,0 +1,1 @@
+<?php file_get_contents('http://dollarreviewclub.com/beta_site/cronjob/demo_fn'); ?>
